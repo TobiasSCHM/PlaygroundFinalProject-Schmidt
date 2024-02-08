@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+    
+{% block title %}
+    | Cliente
+{% endblock title %}
+    
+{% block content_title %}
+    CLIENTE
+{% endblock content_title %}
+
+{% block content %}
+    <h2>Cliente: Lista</h2>
+
+    <table border="1">
+        <thead>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button><a href="{% url 'cliente:index' %}">Atrás</a></button>
+    <button><a href="{% url 'core:index' %}">Inicio</a></button>
+
+{% endblock content %}
